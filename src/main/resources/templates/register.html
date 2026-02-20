@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Please sign up</title>
+  <link th:href="@{/default-ui.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="content">
+  <form class="login-form" method="post" th:action="@{/register}" th:object="${user}">
+    <h2>Please sign up</h2>
+
+    <div th:if="${success}" class="alert alert-success">
+      <span th:text="${success}"></span>
+    </div>
+
+    <div th:if="${param.error}">
+      <div class="alert alert-danger">
+        Invalid username and password.
+      </div>
+    </div>
+
+    <p>
+      <label for="firstName" class="screenreader">First Name</label>
+      <input type="text" th:field="*{firstName}" placeholder="First Name" required>
+    </p>
+
+    <p>
+      <label for="lastName" class="screenreader">Last Name</label>
+      <input type="text" th:field="*{lastName}" placeholder="Last Name" required>
+    </p>
+
+    <p>
+      <label for="username" class="screenreader">Username</label>
+      <input type="text" th:field="*{username}" placeholder="Username" required>
+    </p>
+
+    <p>
+      <label for="email" class="screenreader">Email</label>
+      <input type="email" th:field="*{email}" placeholder="Email" style="height: auto; width: 100%; font-size: 1rem; padding: 0.5rem; box-sizing: border-box" required>
+    </p>
+
+    <p>
+      <label for="password" class="screenreader">Password</label>
+      <input type="password" th:field="*{password}" placeholder="Password" required>
+    </p>
+
+    <input name="_csrf" type="hidden" value="_URLq2wL6wjnNEjKUbS-6HYfxp7tP4HBFEXyv2KthNMmfgf2nyB8mgk53TrKV3CsYpmK20Qm66aICeLsJnSU2VXJvbdEGzTC" />
+    <button type="submit" class="primary">Sign in</button>
+  </form>
+
+
+
+</div>
+</body>
+</html>
